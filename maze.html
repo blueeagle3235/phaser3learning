@@ -1,0 +1,86 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
+    <script>
+      const config = {
+        type: Phaser.AUTO,
+        parent: "phaser-example",
+        width: 800,
+        height: 600,
+        physics: { default: "arcade", gravity: {}, debug: false },
+        scene: { preload: preload, create: create, update: update }
+      };
+      function preload() {
+        this.load.image(
+          "square",
+          "https://labs.phaser.io/assets/games/snake/body.png"
+        );
+        this.load.image(
+          "bg",
+          "https://labs.phaser.io/assets/skies/gradient4.png"
+        );
+      }
+      function create() {
+        const maze = [
+          [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+          [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1],
+          [1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1],
+          [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1],
+          [1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1],
+          [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1],
+          [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1],
+          [1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1],
+          [1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1],
+          [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1],
+          [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1],
+          [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
+          [1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1],
+          [1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1],
+          [1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1],
+          [1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1],
+          [1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1],
+          [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
+          [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1]
+        ];
+        this.add.image(400, 300, "bg");
+        square = this.physics.add.image(400, 300, "square").setTint(0x338888);
+        walls = this.physics.add.staticGroup();
+        square.setCollideWorldBounds(true);
+        this.physics.add.collider(square, walls);
+        cursors = this.input.keyboard.createCursorKeys();
+        for (let i = 0; i < maze.length; i++) {
+          for (let j = 0; j < maze[i].length; j++) {
+            if (maze[j][i] === 1) {
+              walls
+                .create(j * 20 + 10, i * 20 + 10, "square")
+                .setScale(1.45)
+                .setTint(0x998346);
+            }
+          }
+        }
+      }
+      function update() {
+        square.setVelocityX(0);
+        square.setVelocityY(0);
+        if (cursors.left.isDown) {
+          square.setVelocityX(-60);
+        }
+        if (cursors.right.isDown) {
+          square.setVelocityX(60);
+        }
+        if (cursors.up.isDown) {
+          square.setVelocityY(-60);
+        }
+        if (cursors.down.isDown) {
+          square.setVelocityY(60);
+        }
+      }
+
+      const game = new Phaser.Game(config);
+    </script>
+  </body>
+</html> -->
